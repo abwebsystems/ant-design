@@ -15,7 +15,7 @@ function isString(str: any) {
   return typeof str === 'string';
 }
 
-// Insert one space between two chinese characters automatically.
+// Insert space between two chinese characters automatically.
 function insertSpace(child: React.ReactChild, needInserted: boolean) {
   // Check the child if is undefined or null.
   if (child == null) {
@@ -40,7 +40,7 @@ function insertSpace(child: React.ReactChild, needInserted: boolean) {
   return child;
 }
 
-const ButtonTypes = tuple('default', 'primary', 'ghost', 'dashed', 'danger');
+const ButtonTypes = tuple('default', 'primary', 'ghost', 'dashed', 'danger', 'tertiary');
 export type ButtonType = (typeof ButtonTypes)[number];
 const ButtonShapes = tuple('circle', 'circle-outline', 'round');
 export type ButtonShape = (typeof ButtonShapes)[number];
@@ -179,6 +179,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     }
   }
 
+  // handling event state
   handleClick: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement> = e => {
     const { loading } = this.state;
     const { onClick } = this.props;
